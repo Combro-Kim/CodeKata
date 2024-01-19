@@ -1,6 +1,6 @@
 class Solution {
     fun solution(age: Int): Int {
-        val answer = 2023
-        return answer - age
+        val year = 2023
+        return year - age
     }
 }
