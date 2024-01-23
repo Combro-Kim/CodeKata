@@ -1,9 +1,3 @@
 class Solution {
-    fun solution(n: Int): Int {
-        var sum: Int = 0
-        for (i in 0..n)
-            if (i % 2 == 0)
-                sum += i
-        return sum
-    }
+    fun solution(n: Int) = (0..n).filter { it % 2 == 0 }.sum()
 }
