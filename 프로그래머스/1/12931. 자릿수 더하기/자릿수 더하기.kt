@@ -1,13 +1,9 @@
 class Solution {
     fun solution(n: Int): Int {
-        var answer = 0
-        var input = n
-        
-        while(input != 0){
-            answer += input%10
-            input /= 10
+        var result = 0
+        for (n_string in n.toString()){
+            result += n_string.toString().toInt()
         }
-        
-        return answer
+        return result
     }
 }
