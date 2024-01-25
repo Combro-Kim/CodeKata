@@ -1,12 +1,12 @@
 class Solution {
     fun solution(x: Int): Boolean {
+        val x_arr = x.toString().toCharArray()
         var sum = 0
-        var x_1 = x
-        
-        while(x_1 != 0){
-            sum += x_1 % 10
-            x_1 /= 10
+
+        for (i in x_arr){
+            sum += i.toString().toInt()
         }
-        return (x % sum == 0)
+
+        return x % sum == 0
     }
 }
