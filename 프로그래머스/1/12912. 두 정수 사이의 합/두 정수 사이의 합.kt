@@ -6,12 +6,10 @@ class Solution {
         if (b<a) {
             a_num = b
             b_num = a
-        }else if (a==b){
-            return a.toLong()
         }
         for (i in a_num..b_num) {
             sum += i
         }
-        return sum.toLong()
+        return sum
     }
 }
