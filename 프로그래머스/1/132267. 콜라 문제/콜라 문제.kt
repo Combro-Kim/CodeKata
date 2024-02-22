@@ -9,6 +9,7 @@ class Solution {
             answer += left
             n = n % a + left
         }
+
         return answer
     }
 }
