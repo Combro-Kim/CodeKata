@@ -4,18 +4,12 @@ class Solution {
         var j = 0
 
         goal.forEach {
-            if (it == cards1[i]) {
-                if (i < cards1.size - 1) {
-                    i += 1
-                }
-            } else if (it == cards2[j]) {
-                if (j < cards2.size - 1) {
-                    j += 1
-                }
-            } else {
-                return "No"
-            }
+            if(i < cards1.size && cards1[i] == it) i++
+            else if (j < cards2.size && cards2[j] == it) j++
+            else return "No"
         }
+
+
         return "Yes"
     }
 }
