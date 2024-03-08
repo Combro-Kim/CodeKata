@@ -1,37 +1,25 @@
-import java.lang.Math.min
-
 class Solution {
     fun solution(keymap: Array<String>, targets: Array<String>): IntArray {
-        var answer = IntArray(targets.size){-1}
+        val answer = mutableListOf<Int>()
+        val keyValueMap = mutableMapOf<Char, Int>()
 
-        var map = mutableMapOf<Char,Int>()
-
-        keymap.forEach {
-            val arr = it.toCharArray()
-            arr.forEach {
-                if(map.containsKey(it)){
-                    map[it] = min(map[it]!!,arr.indexOf(it)+1)
-                } else { 
-                    map[it]= arr.indexOf(it)+1
+        //keyValueMap에 keymap을 정리 (key-value형식으로 몇번째가 제일 빠른지 저장
+        //입출력 1번의 경우 {A=1, B=1, C=2, D=5, E=3, F=4}
+        keymap.forEach { key ->
+            key.forEachIndexed { j, value ->
+                if (j < (keyValueMap[value] ?: 1000)) {
+                    keyValueMap[value] = j + 1
                 }
             }
         }
-
-        for(i in 0 .. targets.size-1){
-            val arr = targets[i].toCharArray()
-            var count = 0
-            var flag = true
-            for(j in 0 .. arr.size-1){
-                if(map.containsKey(arr[j])){
-                    count += map[arr[j]]!!
-                } else {
-                    flag = false
-                    break
-                }
+        //해당 값에 맞게 넣기
+        targets.forEach { target ->
+            var cnt = 0
+            target.forEach { value ->
+                cnt += keyValueMap[value] ?: 1000
             }
-            if(flag) answer[i] = count
+            answer.add(if (cnt < 1000) cnt else -1)
         }
-
-        return answer
+        return answer.toIntArray()
     }
 }
