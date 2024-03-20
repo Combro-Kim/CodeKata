@@ -7,7 +7,7 @@ class Solution {
         //입출력 1번의 경우 {A=1, B=1, C=2, D=5, E=3, F=4}
         keymap.forEach { key ->
             key.forEachIndexed { j, value ->
-                if (j < (keyValueMap[value] ?: 1000)) {
+                if (j < (keyValueMap[value] ?: 700)) {
                     keyValueMap[value] = j + 1
                 }
             }
@@ -16,9 +16,9 @@ class Solution {
         targets.forEach { target ->
             var cnt = 0
             target.forEach { value ->
-                cnt += keyValueMap[value] ?: 1000
+                cnt += keyValueMap[value] ?: 700
             }
-            answer.add(if (cnt < 1000) cnt else -1)
+            answer.add(if (cnt < 700) cnt else -1)
         }
         return answer.toIntArray()
     }
