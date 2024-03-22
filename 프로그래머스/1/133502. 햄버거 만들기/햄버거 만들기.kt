@@ -2,7 +2,7 @@ class Solution {
     fun solution(ingredient: IntArray): Int {
         var answer: Int = 0
         val arr = listOf(1, 2, 3, 1)
-        var muList = mutableListOf<Int>()
+        val muList = mutableListOf<Int>()
 
         for(i in ingredient){
             muList.add(i)
