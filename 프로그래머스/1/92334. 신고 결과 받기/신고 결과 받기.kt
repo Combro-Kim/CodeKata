@@ -1,18 +1,16 @@
 class Solution {
     fun solution(id_list: Array<String>, report: Array<String>, k: Int): IntArray {
-        val answerMap = mutableMapOf<String, Int>()
-        id_list.forEach {
-            answerMap[it] = 0
-        }
-        val userMap = mutableMapOf<String, Int>()
+        var answer = mutableMapOf<String, Int>()
+        id_list.forEach { answer[it] = 0 }
 
-        // 신고된 횟수 저장, 중복제거 필요
+        //신고된 횟수
+        val userMap = mutableMapOf<String, Int>()
         report.distinct().forEach {
-            val reported = it.split(" ")[1]
+            val reported = it.split(' ')[1]
             userMap[reported] = userMap.getOrDefault(reported, 0) + 1
         }
 
-        //정지당한 횟수
+        //정지당한 유저(userMap.value >= k)
         val stopList = mutableListOf<String>()
         userMap.forEach {
             if (it.value >= k) {
@@ -20,13 +18,14 @@ class Solution {
             }
         }
 
-        //stopList에서 신고한 사람 찾기
+        //정지된 유저를 신고한 사람 (stopCntList에 있는 사람을 신고한 사람)
         report.distinct().forEach {
             val user = it.split(' ')[0]
-            if (stopList.contains(it.split(' ')[1])) {
-                answerMap[user] = answerMap.getOrDefault(user, 0) + 1
+            val reportedUser = it.split(' ')[1]
+            if (stopList.contains(reportedUser)) {
+                answer[user] = answer.getOrDefault(user,0) + 1
             }
         }
-        return answerMap.values.toIntArray()
+        return answer.values.toIntArray()
     }
 }
