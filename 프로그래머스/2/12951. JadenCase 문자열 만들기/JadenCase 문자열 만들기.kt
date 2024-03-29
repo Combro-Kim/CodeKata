@@ -1,5 +1,13 @@
 class Solution {
     fun solution(s: String): String {
-        return s.split(' ').joinToString(" ") { it.lowercase().replaceFirstChar { it.uppercase() } }
+        var answer = ""
+        val str = s.split(' ')
+
+        for (i in str) {
+            answer += i.lowercase().replaceFirstChar { it.uppercase() }
+            answer += ' '
+        }
+
+        return answer.dropLast(1)
     }
 }
