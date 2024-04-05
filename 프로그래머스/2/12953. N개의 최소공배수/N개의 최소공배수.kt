@@ -1,11 +1,11 @@
 class Solution {
     fun solution(arr: IntArray): Int {
-        var answer = 0
-        var n = arr[0]
+        var answer = arr[0]
+
         for(i in 1 until arr.size){
-            n = lcm(n,arr[i])
+            answer = lcm(answer,arr[i])
         }
-        answer = n
+
         return answer
     }
 
