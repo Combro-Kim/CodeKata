@@ -1,20 +1,15 @@
 class Solution {
     fun solution(k: Int, tangerine: IntArray): Int {
-        var answer: Int = 0
-        var k = k
+        var answer = 0
 
-        val listMap = hashMapOf<Int, Int>()
-        tangerine.forEach {
-            listMap[it] = (listMap[it] ?: 0) + 1
-        }
-        val valueList = listMap.values.sortedDescending()
-
+        val list = tangerine.groupBy { it }.values.map { it.size }
+        
+        val sortList = list.sortedDescending()
         var cnt = 0
-        var sum = 0
-        while (k > sum) {
-            sum += valueList[cnt]
+        sortList.takeWhile {
+            cnt += it
             answer++
-            cnt++
+            cnt < k
         }
         return answer
     }
