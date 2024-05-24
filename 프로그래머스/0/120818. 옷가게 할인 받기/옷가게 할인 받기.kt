@@ -1,13 +1,8 @@
 class Solution {
-    fun solution(price: Int): Int {
-        var result = price.toDouble()
-        if (price >= 500000) {
-            result -= price * 0.2
-        } else if (price >= 300000) {
-            result -= price * 0.1
-        } else if (price >= 100000) {
-            result -= price * 0.05
-        }
-        return result.toInt()
+    fun solution(price: Int) = when {
+        price >= 500_000 -> (price * 0.8).toInt()
+        price >= 300_000 -> (price * 0.9).toInt()
+        price >= 100_000 -> (price * 0.95).toInt()
+        else -> price
     }
 }
