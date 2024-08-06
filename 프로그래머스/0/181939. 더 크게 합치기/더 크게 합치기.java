@@ -7,5 +7,7 @@ class Solution {
         int sumB = Integer.parseInt(s_b + s_a);
         
         return (Math.max(sumA, sumB));
+        
+        //return(Math.max(Integer.parseInt(a+""+b),Integer.parseInt(b+ ""+ a)));
     }
 }
