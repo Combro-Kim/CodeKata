@@ -1,10 +1,8 @@
-import java.util.Objects;
-
 class Solution {
     public static int solution(String ineq, String eq, int n, int m) {
         int answer = 0;
-        if (Objects.equals(eq, "=")) {
-            if(Objects.equals(ineq, "<")){
+        if (eq.equals("=")) {
+            if(ineq.equals("<")){
                 if(n<=m){
                     answer = 1;
                 }
@@ -14,7 +12,7 @@ class Solution {
                 }
             }
         }else{
-            if(Objects.equals(ineq, "<")){
+            if(ineq.equals("<")){
                 if(n<m){
                     answer = 1;
                 }
