@@ -1,9 +1,8 @@
 import java.util.*;
-
 class Solution {
-    public static int[] solution(String s) {
-        List<Integer> answer = new ArrayList<>();
-        List<Character> arr = new ArrayList<>();
+        public static int[] solution(String s) {
+        ArrayList<Integer> answer = new ArrayList<>();
+        ArrayList<Character> arr = new ArrayList<>();
 
         for (char c : s.toCharArray()) {
             if (arr.contains(c)) {
