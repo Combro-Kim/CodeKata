@@ -1,17 +1,18 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class Solution {
     public int[] solution(int[] num_list) {
-        int[] answer = new int[num_list.length+1];
+        List<Integer> arr = new ArrayList<>();
         
-        for(int i =0; i<num_list.length; i++) {
-        	answer[i] = num_list[i];
+        for(int a : num_list) {
+        	arr.add(a);
         }
         
-        if(num_list[num_list.length -2] < num_list[num_list.length-1]) {
-        	answer[answer.length -1] = num_list[num_list.length-1] - num_list[num_list.length-2];
-        }else {
-        	answer[answer.length-1] = num_list[num_list.length-1] * 2;
-        }
+        int n = arr.get(arr.size() -2) < arr.get(arr.size()-1) ? arr.get(arr.size()-1) - arr.get(arr.size()-2) : arr.get(arr.size()-1) * 2;
+        arr.add(n);
         
+        int answer[] = arr.stream().mapToInt(Integer::intValue).toArray();
         return answer;
     }
 }
