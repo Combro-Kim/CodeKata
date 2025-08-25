@@ -1,6 +1,17 @@
 class Solution {
     public int solution(int[] num_list) {
-        int answer = 0;
-        return answer;
+       
+    	String hol = "";
+    	String zzak = "";
+    	
+    	for(int i : num_list) {
+    		if(i%2 == 0) {
+    			zzak += String.valueOf(i);
+    		}else {
+    			hol += String.valueOf(i);
+    		}
+    	}
+    	
+    	return Integer.valueOf(hol) + Integer.valueOf(zzak);
     }
 }
